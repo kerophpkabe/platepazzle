@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>8面パズルゲーム</title>
+</head>
+<body>
+    <header>
+        <h1>画像を完成させよう</h1>
+    </header>
+    <main>
+        <section>
+            <div class="button">
+                <form>
+                    <input type="button" value="パズルを始める" onclick="start()"><br>
+                    <input type="button" value="クリア不可？" onclick="chenge()">
+                </form>
+            </div>
+            <table>
+                <tr class="tr000">
+                    <td id="plate000" class="td000"><img src="./img/p001.png"></td>
+                    <td id="plate001" class="td001"><img src="./img/p002.png"></td>
+                    <td id="plate002" class="td001"><img src="./img/p003.png"></td>
+                    <td id="plate003" class="td001"><img src="./img/p004.png"></td>
+                    <td id="plate004" class="td004"><img src="./img/p005.png"></td>
+                </tr>
+                <tr class="tr001">
+                    <td id="plate010" class="td002"><img src="./img/p011.png"></td>
+                    <td id="plate011" class="td003"><img src="./img/p012.png"></td>
+                    <td id="plate012" class="td003"><img src="./img/p013.png"></td>
+                    <td id="plate013" class="td003"><img src="./img/p014.png"></td>
+                    <td id="plate014" class="td005"><img src="./img/p015.png"></td>
+                </tr>
+                <tr class="tr002">
+                    <td id="plate020" class="td002"><img src="./img/p021.png"></td>
+                    <td id="plate021" class="td003"><img src="./img/p022.png"></td>
+                    <td id="plate022" class="td003"><img src="./img/p023.png"></td>
+                    <td id="plate023" class="td003"><img src="./img/p024.png"></td>
+                    <td id="plate024" class="td005"><img src="./img/p025.png"></td>
+                </tr>
+                <tr class="tr003">
+                    <td id="plate030" class="td002"><img src="./img/p031.png"></td>
+                    <td id="plate031" class="td003"><img src="./img/p032.png"></td>
+                    <td id="plate032" class="td003"><img src="./img/p033.png"></td>
+                    <td id="plate033" class="td003"><img src="./img/p034.png"></td>
+                    <td id="plate034" class="td005"><img src="./img/p035.png"></td>
+                </tr>
+                <tr class="tr004">
+                    <td id="plate040" class="td006"><img src="./img/p041.png"></td>
+                    <td id="plate041" class="td007"><img src="./img/p042.png"></td>
+                    <td id="plate042" class="td007"><img src="./img/p043.png"></td>
+                    <td id="plate043" class="td007"><img src="./img/p044.png"></td>
+                    <td id="plate044" class="td008"><img src="./img/p045.png"></td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <div class="comment">
+                <p>
+                    よくある９マス使った８面パズルにチャレンジ<br>
+                    左右下が空白になるとクリア可能です。<br>
+                    マス目パズルの不可能性は理解してるけど、<br>
+                    めんどいのでボタンで割愛してます。<br>
+                    ９マスの下左２マスが入れ替わるので、これで入れ替えた後、<br>
+                    クリア条件を満たしてください。（入れ替え時に満たされても判定されません。）<br>
+                    今後エラーを直していきたいけど今はこの状態です。
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h2>Ryohei_Nakano</h2>
+    </footer>
+    <script src="./script/jquery-3.7.1.min.js"></script>
+    <script src="./script/script.js"></script>
+</body>
+</html>
