@@ -8,17 +8,32 @@
     <link rel="stylesheet" href="css/style.css">
     <title>8面パズルゲーム</title>
 </head>
+
 <body>
     <header>
-        <h1>画像を完成させよう</h1>
+        <h1>矢印キーか移動ボタンで画像を完成させよう</h1>
     </header>
     <main>
         <section>
             <div class="button">
                 <form>
-                    <input type="button" value="パズルを始める" onclick="start()"><br>
-                    <input type="button" value="クリア不可？" onclick="chenge()">
+                    <input class="btn" type="button" value="start" onclick="start()">
+                    <input class="btn" type="button" value="avoid" onclick="chenge()">
                 </form>
+                <div class="arrowkey">
+                    <form>
+                        <div>
+                            <input class="padbtn" id="arrowbtn2" type="button" value="up" onclick="key_codeon2()">
+                        </div>
+                        <div>
+                            <input class="padbtn" id="arrowbtn1" type="button" value="left" onclick="key_codeon1()">
+                            <input class="padbtn" id="arrowbtn3" type="button" value="right" onclick="key_codeon3()">
+                        </div>
+                        <div>
+                            <input class="padbtn" id="arrowbtn4" type="button" value="down"    onclick="key_codeon4()">
+                        </div>
+                    </form>
+                </div>
             </div>
             <table>
                 <tr class="tr000">
@@ -61,13 +76,11 @@
         <section>
             <div class="comment">
                 <p>
-                    よくある９マス使った８面パズルにチャレンジ<br>
-                    左右下が空白になるとクリア可能です。<br>
-                    マス目パズルの不可能性は理解してるけど、<br>
-                    めんどいのでボタンで割愛してます。<br>
-                    ９マスの下左２マスが入れ替わるので、これで入れ替えた後、<br>
-                    クリア条件を満たしてください。（入れ替え時に満たされても判定されません。）<br>
-                    今後エラーを直していきたいけど今はこの状態です。
+                    右下が空白になるとクリア可能です。<br>
+                    不可能の場合はavoidボタンを使ってください。
+                    ９マスの下左２マスが入れ替わります。<br>
+                    連続してクリアしていくとエラーが発生します。<br>
+                    今後エラーを直していきたいけど今はこの状態です。<br>
                 </p>
             </div>
         </section>
@@ -78,4 +91,5 @@
     <script src="./script/jquery-3.7.1.min.js"></script>
     <script src="./script/script.js"></script>
 </body>
+
 </html>
