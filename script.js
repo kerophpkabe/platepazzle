@@ -12,6 +12,7 @@ var l = 0;
 var checkpushin = [];
 const plateNocheck = ['plate011', 'plate012', 'plate013', 'plate021', 'plate022', 'plate023', 'plate031', 'plate032'];
 var okcount = 0;
+var atr = 0;
 
 function start() {
     if (e === 0) {
@@ -52,9 +53,64 @@ function chenge() {
     };
     chbox.appendChild(chimg2);
     chbox2.appendChild(chimg);
+    endcheck();
 };
 
 
+// 携帯タップに対応したボタン設定
+function key_codeon1() {
+    atr = 37;
+    keybtnons();
+};
+function key_codeon2() {
+    atr = 38;
+    keybtnons();
+};
+function key_codeon3() {
+    atr = 39;
+    keybtnons();
+};
+function key_codeon4() {
+    atr = 40;
+    keybtnons();
+};
+
+function keybtnons(){
+if (e === 1) {
+    x = 0;
+    y = 0;
+    var key_code = atr;
+
+    if (key_code === 39) {
+        if (notimg === 'plate011' || notimg === 'plate021' || notimg === 'plate031') {
+            x = 0;
+        } else { x = x - 1 }
+    };	//左ボタン
+
+    if (key_code === 40) {
+        if (notimg === 'plate011' || notimg === 'plate012' || notimg === 'plate013') {
+            y = 0;
+        } else { y = y - 1 }
+    };	//上ボタン
+
+    if (key_code === 37) {
+        if (notimg === 'plate013' || notimg === 'plate023' || notimg === 'plate033') {
+            x = 0;
+        } else { x = x + 1 }
+    };	//右ボタン
+
+    if (key_code === 38) {
+        if (notimg === 'plate033' || notimg === 'plate032' || notimg === 'plate031') {
+            y = 0;
+        } else { y = y + 1 }
+    };	//下ボタン
+    end();
+}
+
+checkpushin = [];
+l = 0;
+okcount = 0;
+};
 
 //キーが押されたときに呼び出される関数
 addEventListener("keydown", keydownfunc);
@@ -65,7 +121,6 @@ function keydownfunc(event) {
         y = 0;
 
         var key_code = event.keyCode;
-        console.log(notimg);
         if (key_code === 39) {
             if (notimg === 'plate011' || notimg === 'plate021' || notimg === 'plate031') {
                 x = 0;
@@ -89,47 +144,62 @@ function keydownfunc(event) {
                 y = 0;
             } else { y = y + 1 }
         };	//下ボタン
+        end();
+    }
 
-        var cut1 = notimg.substring(notimg.indexOf('e') + 2);
-        cut1 = Number(cut1) + y * 10 + x;
-        var nextnot = ('plate0' + cut1);
-        var outbox = document.getElementById(notimg);
-        var inbox = document.getElementById(nextnot);
-        var inimg = document.createDocumentFragment();
-        var item;
-        while (item = inbox.firstChild) {
-            inimg.appendChild(item);
-        }
-        outbox.appendChild(inimg);
-        notimg = nextnot;
+};
 
-        if (notimg === 'plate033') {
-            while (l !== 8) {
-                let name = plateNocheck[l];
-                console.log(name);
-                let check = document.getElementById(name);
-                let check2 = check.querySelector('img');
-                let src = check2.getAttribute('src');
-                let checkpush = src.substring(src.indexOf('g/') + 2)
-                checkpushin.push(checkpush);
+function endcheck() {
+    if (notimg === 'plate033') {
+        while (l !== 8) {
+            let name = plateNocheck[l];
+            let check = document.getElementById(name);
+            let check2 = check.querySelector('img');
+            let src = check2.getAttribute('src');
+            let checkpush = src.substring(src.indexOf('g/') + 2)
+            checkpushin.push(checkpush);
 
-                if (checkpushin[l] === img[l]) {
-                    okcount = okcount + 1;
-                }
-                l = l + 1;
+            if (checkpushin[l] === img[l]) {
+                okcount = okcount + 1;
             }
-        }
-        if (okcount === 8) {
-            var cong = document.getElementById('plate033');
-            var congimg = document.createElement('img');
-            congimg.src = ('./img/p034.png');
-            cong.appendChild(congimg);
-            console.log('完成したよ');
-            e = 0;
-            plateNo = plateNocheck
-            notimg = 'plate033';
+            l = l + 1;
         }
     }
+
+    if (okcount === 8) {
+        var cong = document.getElementById('plate033');
+        var congimg = document.createElement('img');
+        congimg.src = ('./img/p034.png');
+        cong.appendChild(congimg);
+        console.log('完成したよ');
+        e = 0;
+        plateNo.push('plate011');
+        plateNo.push('plate012');
+        plateNo.push('plate013');
+        plateNo.push('plate021');
+        plateNo.push('plate022');
+        plateNo.push('plate023');
+        plateNo.push('plate031');
+        plateNo.push('plate032');
+        notimg = 'plate033';
+    };
+};
+
+function end() {
+    var cut1 = notimg.substring(notimg.indexOf('e') + 2);
+    cut1 = Number(cut1) + y * 10 + x;
+    var nextnot = ('plate0' + cut1);
+    var outbox = document.getElementById(notimg);
+    var inbox = document.getElementById(nextnot);
+    var inimg = document.createDocumentFragment();
+    var item;
+    while (item = inbox.firstChild) {
+        inimg.appendChild(item);
+    }
+    outbox.appendChild(inimg);
+    notimg = nextnot;
+
+    endcheck();
 
     checkpushin = [];
     l = 0;
